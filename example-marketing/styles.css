@@ -1,0 +1,47 @@
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: darkgrey;
+  background-color: #222831;
+  max-width: 500px;
+  margin: auto;
+  padding: 50px;
+}
+
+h1,
+h2 {
+  color: #f96d00;
+}
+
+p {
+  font-weight: 300;
+  font-size: 1em;
+  text-align: justify;
+}
+
+img {
+  max-width: 100%;
+}
+
+.social-post {
+  border: solid 1px white;
+  border-radius: 5%;
+  padding: 25px;
+  margin: 50px auto;
+}
+
+.social-post-text {
+  color: whitesmoke;
+}
+
+.profile-picture {
+  margin: auto;
+  border-radius: 10%;
+}
+
+.important {
+  text-decoration: underline;
+}
+
+#seth-godin {
+  text-decoration: underline;
+}
