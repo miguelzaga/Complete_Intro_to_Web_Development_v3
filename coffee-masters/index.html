@@ -18,59 +18,71 @@
     <main class="main">
         <div class="cards-container">
             <div class="cards-left">
-            <div class="card card-items">
-                <h2 class="card-title">Items</h2>
-                <ul class="card-list">
-                    <li class="card-li">
-                        <div class="card-quantity">1x</div>
-                        <div class="card-item">
-                            <p class="card-item-main">Capuccino</p>
-                            <ul class="card-item-extra">
-                                <li class="card-item-extra-li">
-                                    Lite foam
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card-price">$3.35</div>
-                    </li>
-                    <li class="card-li">
-                        <div class="card-quantity">1x</div>
-                        <div class="card-item">
-                            <p class="card-item-main">Capuccino</p>
-                            <ul class="card-item-extra">
-                                <li class="card-item-extra-li">
-                                    Lite foam
-                                </li>
-                                <li class="card-item-extra-li">
-                                    Double espresso
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card-price">$3.85</div>
-                    </li>
-                    <li class="card-li">
-                        <div class="card-quantity">1x</div>
-                        <div class="card-item">
-                            <p class="card-item-main">Croissant</p>
-                            <ul class="card-item-extra">
-                                <li class="card-item-extra-li">
-                                    Butter
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card-price">$2.45</div>
-                    </li>
-                </ul>
+                <div class="card card-items">
+                    <h2 class="card-title">Items</h2>
+                    <ul class="card-list">
+                        <li class="card-li">
+                            <div class="card-quantity">1x</div>
+                            <div class="card-item">
+                                <p class="card-item-main">Capuccino</p>
+                                <ul class="card-item-extra">
+                                    <li class="card-item-extra-li">
+                                        Lite foam
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-price">$3.35</div>
+                        </li>
+                        <li class="card-li">
+                            <div class="card-quantity">1x</div>
+                            <div class="card-item">
+                                <p class="card-item-main">Capuccino</p>
+                                <ul class="card-item-extra">
+                                    <li class="card-item-extra-li">
+                                        Lite foam
+                                    </li>
+                                    <li class="card-item-extra-li">
+                                        Double espresso
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-price">$3.85</div>
+                        </li>
+                        <li class="card-li">
+                            <div class="card-quantity">1x</div>
+                            <div class="card-item">
+                                <p class="card-item-main">Croissant</p>
+                                <ul class="card-item-extra">
+                                    <li class="card-item-extra-li">
+                                        Butter
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-price">$2.45</div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="cards-right">
+            <div class="cards-right">
 
-            <div class="card card-name">
-                <h2 class="card-title">Name</h2>
-            </div>
-            <div class="card card-payment">
-                <h2 class="card-title">Payment</h2>
-            </div>
+                <div class="card card-name">
+                    <h2 class="card-title">Name</h2>
+                    <div class="card-input-container">
+                        <label for="name" class="card-input-label">Name for order</label>
+                        <input id="name" class="card-input" type="text" placeholder="Ford Perfect" />
+                    </div>
+                </div>
+                <div class="card card-payment">
+                    <h2 class="card-title">Payment</h2>
+                    <div class="card-input-container">
+                        <label for="card" class="card-input-label">Card number</label>
+                        <input id="card" class="card-input" type="tel" placeholder="1234 5678 9012 3456" />
+                    </div>
+                    <div class="card-input-container ccv-input">
+                        <label for="ccv" class="card-input-label">CCV Number</label>
+                        <input id="ccv" class="card-input" type="tel" placeholder="001" />
+                    </div>
+                </div>
             </div>
         </div>
         <div class="payment-container">

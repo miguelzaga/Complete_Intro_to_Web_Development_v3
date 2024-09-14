@@ -2,13 +2,23 @@
     box-sizing: border-box;
 }
 
-h1, h2, ul {
+h1, h2, ul, p {
     margin: 0;
 }
 
 ul {
     list-style: none;
     padding: 0;
+}
+
+input {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+input:focus-visible {
+    outline: none;
 }
 
 .body {
@@ -58,6 +68,73 @@ ul {
 
 .card-title {
     text-transform: uppercase;
+    font-size: 1.2em;
     font-weight: 400;
     color: #95683f;
+    margin-bottom: 30px;
+}
+
+.card-li {
+    display: flex;
+    color: #4d523e;
+    border-bottom: 2px solid #da935180;
+    padding: 20px 10px;
+}
+
+.card-li:last-child {
+    border-bottom: none;
+}
+
+.card-quantity {
+    margin-right: 20px;
+}
+
+.card-item-main {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.card-item-extra-li {
+    color: #95683f
+}
+
+.card-price {
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.card-name {
+    margin-bottom: 30px;
+}
+
+.card-input-container {
+    /* background-color: transparent; */
+    border: 1px solid #95683f;
+    border-radius: 20px;
+    /* padding: 10px 30px; */
+    margin-bottom: 15px;
+    /* width: 100%; */
+    position: relative;
+}
+
+.card-input-label {
+    position: absolute;
+    top: -9px;
+    left: 26px;
+    font-size: 0.7em;
+    color: #95683f;
+    background-color: #eee2d6;
+    padding: 0 5px;
+}
+
+.card-input {
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    padding: 10px 30px;
+}
+
+.ccv-input {
+    max-width: 150px;
 }
