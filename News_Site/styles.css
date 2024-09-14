@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .page {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #222;
+    font-size: 16px;
+    max-width: 1200px;
+    padding: 50px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 3fr 5fr 3fr;
+    grid-template-areas:
+      "title       title        title"
+      "nav         nav          nav  "
+      "article-1   article-2    article-3  "
+      "article-4   article-5    article-5";
+  }
+  
+  .brand-header {
+    grid-area: title;
+    margin: 30px;
+  }
+  
+  .brand, .article-title {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+  }
+  
+  .nav-links, .story {
+    border: 2px #555 solid;
+  }
+  
+  .nav-links {
+    list-style-type: none;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    justify-content: space-evenly;
+    grid-area: nav;
+    border-bottom: 0;
+  }
+  
+  .section-link {
+    color: inherit;
+    font-weight: bold;
+    font-size: 1.6em;
+    text-decoration: none;
+  }
+  
+  .section-link:hover {
+    text-decoration: underline;
+  }
+  
+  
+  .story {
+    padding: 15px;
+  }
+  
+  .story-1, .story-2, .story-3 {
+    border-bottom: 0;
+  }
+  
+  .story-1 {
+    grid-area: article-1;
+  }
+  
+  .story-2 {
+    grid-area: article-2;
+    border-left: 0;
+    border-right: 0;
+  }
+  
+  .story-3 {
+    grid-area: article-3;
+  }
+  
+  .story-4 {
+    grid-area: article-4;
+    border-right: 0;
+  }
+  
+  .story-5 {
+    grid-area: article-5;
+  }
+  
+  .article-title {
+    font-weight: 300;
+  }
+  
+  .article-image {
+    max-width: 100%;
+  }
+  
