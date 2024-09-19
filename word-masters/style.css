@@ -42,3 +42,16 @@
     text-transform: uppercase;
     font-weight: bold;
   }
+
+  .row {
+    pointer-events: none;
+  }
+
+  .current-row {
+    pointer-events: all;
+  }
+  
+  .submitted .input {
+    background-color: var(--dark-blue);
+    color: var(--gray)
+  }
