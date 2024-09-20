@@ -55,3 +55,11 @@
     background-color: var(--dark-blue);
     color: var(--gray)
   }
+
+  .submitted .input.green {
+    background-color: green;
+  }
+
+  .submitted .input.red {
+    background-color: red;
+  }

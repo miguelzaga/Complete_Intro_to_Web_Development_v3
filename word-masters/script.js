@@ -17,7 +17,7 @@ function handleEnter(event) {
     const row = event.target.parentElement
     let word = getWordFromRow(row)
     if (word.length === 5) {
-        submitWord(word)
+        submitWord(word, row)
         disableRow(row)
         goToNextRow(row)
     }
@@ -61,19 +61,47 @@ function disableRow(row) {
     row.classList.remove('current-row')
     row.querySelectorAll('.input').forEach(function disableInput(inputElement) {
         inputElement.setAttribute('disabled', '')
-    } )
+    })
 }
 
-function submitWord(word) {
-    console.log('submitted: ', word)
-    // getWordOfTheDay().then(function compareWords (wordOfTheDay) {
-    //     console.log('Word of the Day :', wordOfTheDay)
-    //     console.log('Word: ', word)
-    // } )
+function submitWord(word, row) {
+    validateWord(word)
+        .then(function (isValid) {
+            if (isValid) {
+                getWordOfTheDay()
+                    .then(function compareWordOfTheDay(wordOfTheDay) {
+                        console.log('Word of the Day :', wordOfTheDay)
+                        const results = compareWords(word, wordOfTheDay)
+                        addColorsToInput(row, results.colors)
+                        if (results.winner) {
+                            window.alert('You win!')
+                        }
+                    })
+            }
+        })
 }
 
-function handleClick(event) {
-    event.preventDefault()
+function addColorsToInput(row, colors) {
+    inputs = row.querySelectorAll('.input').forEach(function addColorClass(inputElement, i) {
+        inputElement.classList.add(colors[i])
+    })
+}
+
+function compareWords(word1, word2) {
+    const colors = []
+    for (let i = 0; i < word1.length; i++) {
+        if (word1[i] === word2[i]) {
+            colors.push('green')
+        } else {
+            colors.push('red')
+        };
+    }
+
+    const isSolution = colors.every((color) => color === 'green')
+    return {
+        winner: isSolution,
+        colors: colors
+    }
 }
 
 async function getWordOfTheDay() {
@@ -82,11 +110,18 @@ async function getWordOfTheDay() {
     return processedResponse.word
 }
 
+async function validateWord(word) {
+    const promise = await fetch(VALIDATE_URL, {
+        method: "POST",
+        body: JSON.stringify({ "word": word })
+    })
+    const processedResponse = await promise.json()
+    return processedResponse.validWord
+}
+
 function init() {
     main.addEventListener("keydown", handleKeydown)
     main.addEventListener("input", goToNextInput)
-    main.addEventListener("click", handleClick)
-
     main.querySelector('.input').focus()
 }
 
