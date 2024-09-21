@@ -18,8 +18,6 @@ function handleEnter(event) {
     let word = getWordFromRow(row)
     if (word.length === 5) {
         submitWord(word, row)
-        disableRow(row)
-        goToNextRow(row)
     }
 }
 
@@ -70,37 +68,52 @@ function submitWord(word, row) {
             if (isValid) {
                 getWordOfTheDay()
                     .then(function compareWordOfTheDay(wordOfTheDay) {
-                        console.log('Word of the Day :', wordOfTheDay)
                         const results = compareWords(word, wordOfTheDay)
-                        addColorsToInput(row, results.colors)
+                        addColorsToInput(row, results.matches)
+                        disableRow(row)
                         if (results.winner) {
                             window.alert('You win!')
+                        } else {
+                            goToNextRow(row)
                         }
                     })
+            } else {
+                window.alert('Word is not valid')
             }
         })
 }
 
-function addColorsToInput(row, colors) {
+    function addColorsToInput(row, matches) {
+    matchToColor = {
+        "yes": "green",
+        "in-the-word": "yellow",
+        "no": "red"
+    }
     inputs = row.querySelectorAll('.input').forEach(function addColorClass(inputElement, i) {
-        inputElement.classList.add(colors[i])
+        inputElement.classList.add(matchToColor[matches[i]])
     })
 }
 
-function compareWords(word1, word2) {
-    const colors = []
+function compareWords(word1, secretWord) {
+    const secretArray = secretWord.split('')
+    const matches = []
     for (let i = 0; i < word1.length; i++) {
-        if (word1[i] === word2[i]) {
-            colors.push('green')
+        let letter = word1[i]
+        if (letter === secretWord[i]) {
+            matches.push('yes')
+        } else if (secretArray.includes(letter)) {
+            let indexLetter = secretArray.indexOf(letter)
+            secretArray[indexLetter] = null
+            matches.push('in-the-word')
         } else {
-            colors.push('red')
-        };
+            matches.push('no')
+        }
     }
 
-    const isSolution = colors.every((color) => color === 'green')
+    const isSolution = matches.every((match) => match === 'yes')
     return {
         winner: isSolution,
-        colors: colors
+        matches: matches
     }
 }
 
